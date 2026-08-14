@@ -53,17 +53,23 @@ nav a{
 }
 
 .hero{
-  padding:50px 20px;
-  background:linear-gradient(135deg,#11181d,#242e34);
+  padding:0;
+  background:#101417;
 }
 
 .hero-content{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:35px;
-  align-items:center;
+  max-width:100%;
+  margin:0;
+  display:block;
+}
+
+.hero-image{
+  width:100%;
+  height:auto;
+  min-height:220px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
 }
 
 .hero h1{
@@ -349,6 +355,13 @@ footer{
 
 
 <section class="hero">
+
+  <img
+    class="hero-image"
+    src="https://raw.githubusercontent.com/allroundadvert/IFECOSTEV-ENTERPRISES/refs/heads/main/Screenshot_20260814-091753.jpg"
+    alt="IFECOSTEV ENTERPRISES">
+
+</section>
 
   <div class="hero-content">
 
