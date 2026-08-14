@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IFECOSTEV ENTERPRISES</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#101417;
+  color:white;
+}
+
+header{
+  background:#090c0e;
+  padding:18px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:2px solid #e32620;
+}
+
+.header{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.logo span{
+  color:#e32620;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:bold;
+}
+
+.hero{
+  padding:50px 20px;
+  background:linear-gradient(135deg,#11181d,#242e34);
+}
+
+.hero-content{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:55px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:#e32620;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  color:#ddd;
+}
+
+.hero img{
+  width:100%;
+  border-radius:15px;
+  border:2px solid #444;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:15px 22px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.red{
+  background:#e32620;
+  color:white;
+}
+
+.dark{
+  background:#222;
+  color:white;
+  margin-left:8px;
+}
+
+section{
+  padding:60px 20px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.title h2{
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+.title p{
+  color:#aaa;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+}
+
+.product{
+  background:#1b2227;
+  border:1px solid #39434a;
+  border-radius:12px;
+  padding:20px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.product:hover,
+.product.selected{
+  border:2px solid #e32620;
+  transform:translateY(-3px);
+}
+
+.product-icon{
+  height:100px;
+  background:#0d1114;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.product h3{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.product p{
+  color:#aaa;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.order-area{
+  display:grid;
+  grid-template-columns:1fr .8fr;
+  gap:25px;
+}
+
+.panel{
+  background:#1b2227;
+  border:1px solid #39434a;
+  border-radius:15px;
+  padding:25px;
+}
+
+.panel h2{
+  margin-bottom:10px;
+}
+
+label{
+  display:block;
+  margin-top:18px;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+select,
+input{
+  width:100%;
+  padding:14px;
+  background:#0d1114;
+  border:1px solid #465158;
+  color:white;
+  border-radius:8px;
+  font-size:15px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.summary{
+  background:#0d1114;
+  padding:18px;
+  border-radius:10px;
+  margin-top:20px;
+  line-height:1.8;
+}
+
+.order-button{
+  width:100%;
+  border:0;
+  padding:17px;
+  margin-top:20px;
+  background:#25D366;
+  color:#061008;
+  border-radius:9px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.address{
+  line-height:1.7;
+  color:#ccc;
+  margin-top:15px;
+}
+
+.contact{
+  background:#0c1012;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.contact-box{
+  background:#181f23;
+  padding:25px;
+  text-align:center;
+  border-radius:10px;
+}
+
+.contact-box strong{
+  display:block;
+  font-size:20px;
+  margin-top:8px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#999;
+}
+
+.whatsapp{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background:#25D366;
+  color:#061008;
+  padding:15px 20px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+  z-index:200;
+}
+
+@media(max-width:900px){
+
+  .hero-content{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .order-area{
+    grid-template-columns:1fr;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:500px){
+
+  nav{
+    display:none;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .row{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header">
+
+    <div class="logo">
+      <span>IFECOSTEV</span> ENTERPRISES
+    </div>
+
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div>
+
+      <h1>
+        Premium <span>Car-Care</span> Products
+      </h1>
+
+      <p>
+        We supply premium car-care lubricants and automotive fluids
+        that enhance engine performance, reduce wear and keep your
+        vehicle running smoothly.
+      </p>
+
+      <a href="#order" class="btn red">
+        Choose & Order
+      </a>
+
+      <a href="tel:08064386811" class="btn dark">
+        Call 08064386811
+      </a>
+
+    </div>
+
+    <div>
+      <img src="ifecostev-advert.jpg"
+           alt="IFECOSTEV ENTERPRISES Products">
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="products">
+
+  <div class="container">
+
+    <div class="title">
+      <h2>Our Products</h2>
+      <p>Select the product you want to order.</p>
+    </div>
+
+
+    <div class="products">
+
+      <div class="product"
+           data-product="TECO Carb & Choke Cleaner"
+           onclick="selectProduct(this)">
+
+        <div class="product-icon">🧴</div>
+
+        <h3>
+          TECO Carb & Choke Cleaner
+        </h3>
+
+        <p>
+          Premium carburetor and choke cleaner.
+        </p>
+
+      </div>
+
+
+      <div class="product"
+           data-product="TECO Multi-Purpose Foam Cleaner"
+           onclick="selectProduct(this)">
+
+        <div class="product-icon">✨</div>
+
+        <h3>
+          TECO Multi-Purpose Foam Cleaner
+        </h3>
+
+        <p>
+          Multi-purpose automotive foam cleaner.
+        </p>
+
+      </div>
+
+
+      <div class="product"
+           data-product="TECO Tire Foam Cleaner"
+           onclick="selectProduct(this)">
+
+        <div class="product-icon">🛞</div>
+
+        <h3>
+          TECO Tire Foam Cleaner
+        </h3>
+
+        <p>
+          Foam cleaner for vehicle tyres.
+        </p>
+
+      </div>
+
+
+      <div class="product"
+           data-product="TECO Motor Flush"
+           onclick="selectProduct(this)">
+
+        <div class="product-icon">⚙️</div>
+
+        <h3>
+          TECO Motor Flush
+        </h3>
+
+        <p>
+          Engine cleaning and maintenance product.
+        </p>
+
+      </div>
+
+
+      <div class="product"
+           data-product="TECO Spray Paint"
+           onclick="selectProduct(this)">
+
+        <div class="product-icon">🎨</div>
+
+        <h3>
+          TECO Spray Paint
+        </h3>
+
+        <p>
+          Automotive spray paint in different colours.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="order">
+
+  <div class="container order-area">
+
+
+    <div class="panel">
+
+      <h2>Place Your Order</h2>
+
+      <p style="color:#aaa;margin-top:8px;">
+        Choose your product, quality, colour and quantity.
+        Your order will be sent directly to our WhatsApp.
+      </p>
+
+
+      <label>Product</label>
+
+      <select id="product"
+              onchange="updateSummary()">
+
+        <option value="">
+          -- Select Product --
+        </option>
+
+        <option>
+          TECO Carb & Choke Cleaner
+        </option>
+
+        <option>
+          TECO Multi-Purpose Foam Cleaner
+        </option>
+
+        <option>
+          TECO Tire Foam Cleaner
+        </option>
+
+        <option>
+          TECO Motor Flush
+        </option>
+
+        <option>
+          TECO Spray Paint
+        </option>
+
+      </select>
+
+
+      <div class="row">
+
+        <div>
+
+          <label>Quality</label>
+
+          <select id="quality"
+                  onchange="updateSummary()">
+
+            <option>Standard</option>
+            <option>Premium</option>
+            <option>Heavy Duty</option>
+            <option>Professional Grade</option>
+
+          </select>
+
+        </div>
+
+
+        <div>
+
+          <label>Colour</label>
+
+          <select id="color"
+                  onchange="updateSummary()">
+
+            <option>Black</option>
+            <option>Red</option>
+            <option>Blue</option>
+            <option>Yellow</option>
+            <option>Silver</option>
+            <option>White</option>
+            <option>Other</option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div>
+
+          <label>Quantity</label>
+
+          <input
+            id="quantity"
+            type="number"
+            min="1"
+            value="1"
+            onchange="updateSummary()">
+
+        </div>
+
+
+        <div>
+
+          <label>Customer Name</label>
+
+          <input
+            id="customer"
+            type="text"
+            placeholder="Enter your name"
+            oninput="updateSummary()">
+
+        </div>
+
+      </div>
+
+
+      <label>
+        Delivery / Pickup Address
+      </label>
+
+      <input
+        id="address"
+        type="text"
+        placeholder="Enter your address"
+        oninput="updateSummary()">
+
+
+      <div class="summary"
+           id="summary">
+
+        <strong>Order Summary</strong>
+
+        <br>
+
+        Product: Not selected
+
+        <br>
+
+        Quality: Standard
+
+        <br>
+
+        Colour: Black
+
+        <br>
+
+        Quantity: 1
+
+      </div>
+
+
+      <button
+        class="order-button"
+        onclick="sendOrder()">
+
+        ORDER ON WHATSAPP — 08064386811
+
+      </button>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h2>
+        IFECOSTEV ENTERPRISES
+      </h2>
+
+      <p class="address">
+
+        We supply premium car-care lubricants
+        and automotive fluids for vehicle
+        maintenance and performance.
+
+      </p>
+
+
+      <br>
+
+      <strong>Shop Address</strong>
+
+      <p class="address">
+
+        Shop A7, 47, 48, 49,
+        Aspamda, Trade-Fair Complex,
+        Lagos.
+
+      </p>
+
+
+      <br>
+
+      <strong>Phone / WhatsApp</strong>
+
+      <p class="address">
+
+        08064386811
+
+        <br>
+
+        09036502327
+
+        <br>
+
+        07067843543
+
+      </p>
+
+
+      <a
+        href="tel:08064386811"
+        class="btn red"
+        style="width:100%;text-align:center;">
+
+        CALL TO ORDER
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+  <div class="container">
+
+    <div class="title">
+
+      <h2>
+        Contact Us
+      </h2>
+
+      <p>
+        Contact IFECOSTEV ENTERPRISES today.
+      </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+      <div class="contact-box">
+
+        📱 WhatsApp
+
+        <strong>
+          08064386811
+        </strong>
+
+      </div>
+
+
+      <div class="contact-box">
+
+        ☎️ Phone
+
+        <strong>
+          09036502327
+        </strong>
+
+      </div>
+
+
+      <div class="contact-box">
+
+        ☎️ Phone
+
+        <strong>
+          07067843543
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<a
+  class="whatsapp"
+  href="https://wa.me/2348064386811?text=Hello%20IFECOSTEV%20ENTERPRISES%2C%20I%20want%20to%20place%20an%20order."
+  target="_blank">
+
+  💬 WhatsApp
+
+</a>
+
+
+<footer>
+
+  © 2026 IFECOSTEV ENTERPRISES.
+  All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+function selectProduct(card){
+
+  document
+    .querySelectorAll(".product")
+    .forEach(function(product){
+
+      product.classList.remove("selected");
+
+    });
+
+
+  card.classList.add("selected");
+
+
+  document.getElementById("product").value =
+    card.getAttribute("data-product");
+
+
+  updateSummary();
+
+
+  document
+    .getElementById("order")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+function updateSummary(){
+
+  const product =
+    document.getElementById("product").value ||
+    "Not selected";
+
+  const quality =
+    document.getElementById("quality").value;
+
+  const color =
+    document.getElementById("color").value;
+
+  const quantity =
+    document.getElementById("quantity").value || 1;
+
+  const customer =
+    document.getElementById("customer").value ||
+    "Not provided";
+
+  const address =
+    document.getElementById("address").value ||
+    "Not provided";
+
+
+  document.getElementById("summary").innerHTML =
+
+    "<strong>Order Summary</strong><br>" +
+
+    "Product: " + product + "<br>" +
+
+    "Quality: " + quality + "<br>" +
+
+    "Colour: " + color + "<br>" +
+
+    "Quantity: " + quantity + "<br>" +
+
+    "Customer: " + customer + "<br>" +
+
+    "Address: " + address;
+
+}
+
+
+function sendOrder(){
+
+  const product =
+    document.getElementById("product").value;
+
+  if(!product){
+
+    alert("Please select a product first.");
+
+    return;
+
+  }
+
+
+  const quality =
+    document.getElementById("quality").value;
+
+  const color =
+    document.getElementById("color").value;
+
+  const quantity =
+    document.getElementById("quantity").value || 1;
+
+  const customer =
+    document.getElementById("customer").value ||
+    "Not provided";
+
+  const address =
+    document.getElementById("address").value ||
+    "Not provided";
+
+
+  const message =
+
+`Hello IFECOSTEV ENTERPRISES!
+
+I want to place an order.
+
+Product: ${product}
+Quality: ${quality}
+Colour: ${color}
+Quantity: ${quantity}
+Customer Name: ${customer}
+Delivery/Pickup Address: ${address}
+
+Please confirm availability and price.
+Thank you.`;
+
+
+  const whatsappURL =
+    "https://wa.me/2348064386811?text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+}
+
+
+updateSummary();
+
+</script>
+
+</body>
+</html>
